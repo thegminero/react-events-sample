@@ -6,26 +6,65 @@
 
 .infinite-hits {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 60%;
+  flex-wrap: wrap; /* Allows cards to wrap into rows */
+  justify-content: space-around; /* Distributes cards evenly in each row */
+  width: 100%; /* Full width of the parent container */
+  margin: 0 auto; /* Centers the container if needed */
+  padding: 16px; /* Optional padding */
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  width: 100%;
-  max-width: 1200px;
-}
+/* Card styles */
 
 .card {
-  padding: 20px;
-  background-color: #f8f9fa;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 16px;
+  flex: 1 1 260px; /* Grow to fill space, shrink if needed, set min width */
+  max-width: 300px; /* Optional max width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
+
+.card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.card h3 {
+  font-size: .75em;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.card p {
+  margin: 4px 0;
+  color: #555;
+}
+
+.add-to-cart-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.add-to-cart-button:hover {
+  background-color: #e65500;
+}
+
+/* END Card styles */
 
 .sentinel {
   height: 1px;
@@ -42,6 +81,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 300px; /* Adjust width as needed */
+  height: 100%;
 }
 
 .refinement-list-container h2 {

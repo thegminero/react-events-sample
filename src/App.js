@@ -5,13 +5,23 @@ import { InstantSearch, useInfiniteHits, RefinementList } from 'react-instantsea
 
 const searchClient = algoliasearch('MWN8IH23ME', '4e648074863f9356162d9db95a19efe0');
 
-// Custom card component, pass sendEvent from CustomInfiniteHits to make it accessible
 const Card = ({ hit, sendEvent }) => (
   <div className="card">
+    <img
+      src={`https://i.linio.com/${hit.images[0].slug}-catalog.webp`}
+      alt={hit.title}
+      className="card-image"
+      onClick={() => sendEvent('click', hit, 'Image Clicked')}
+    />
     <h3 onClick={() => sendEvent('click', hit, 'Product Clicked')}>{hit.title}</h3>
     <p>{hit?.description}</p>
     <p>Price: ${hit?.price?.current}</p>
-    {/* Add more fields as needed */}
+    <button
+      className="add-to-cart-button"
+      onClick={() => sendEvent('conversion', hit, 'Add to Cart')}
+    >
+      Add to Cart
+    </button>
   </div>
 );
 
@@ -35,9 +45,7 @@ function CustomInfiniteHits(props) {
 
   return (
     <div className="infinite-hits">
-      <div className="cards">
         {hits.map(hit => <Card key={hit.objectID} hit={hit} sendEvent={sendEvent} />)}
-      </div>
       <div ref={sentinelRef} className="sentinel" />
     </div>
   );
