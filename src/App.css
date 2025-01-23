@@ -1,5 +1,14 @@
 .App {
   display: flex;
+  flex-direction: column; /* Ensure vertical stacking for header and content */
+  align-items: center; /* Center-align content horizontally */
+  padding: 20px;
+  width: 100%; /* Full width for App container */
+  box-sizing: border-box; /* Include padding and border in width calculations */
+}
+
+div.main {
+  display: flex;
   justify-content: center;
   padding: 20px;
 }
@@ -105,3 +114,45 @@
 }
 
 /* END FACET Styles */
+
+/* HEADER STYLING */
+header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+header button:hover {
+  background-color: #0056b3;
+}
+
+header button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+header button:not(:last-child) {
+  margin-right: 1rem;
+}
+
+
+/* END Header styles */
