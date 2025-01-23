@@ -8,8 +8,8 @@ import aa from 'search-insights';
 
 // Initialize Algolia Insights
 aa('init', {
-  appId: 'MWN8IH23ME',
-  apiKey: '4e648074863f9356162d9db95a19efe0',
+  appId: 'APPID',
+  apiKey: 'APIKey',
 });
 
 // Middleware for handling custom events
@@ -35,7 +35,7 @@ function InsightsMiddleware() {
 }
 
 // Search client configuration
-const searchClient = algoliasearch('MWN8IH23ME', '4e648074863f9356162d9db95a19efe0');
+const searchClient = algoliasearch('APPID', 'APIKey');
 
 // Custom InfiniteHits component with event tracking
 function CustomInfiniteHits({ onAddToCart }) {
